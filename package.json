@@ -1,0 +1,58 @@
+{
+  "name": "calcom-mcp",
+  "version": "1.0.0",
+  "description": "Local stdio MCP server giving an AI agent full access to the Cal.com / Cal.eu v2 API. Defaults to the EU host (api.cal.eu); US and self-hosted users set CALCOM_BASE_URL.",
+  "type": "module",
+  "bin": {
+    "calcom-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "smoke": "tsx src/smoke.ts",
+    "smoke:dist": "node dist/smoke.js",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "cal.com",
+    "cal.eu",
+    "scheduling",
+    "calendar",
+    "booking",
+    "stdio",
+    "claude"
+  ],
+  "author": "nikolapavurdzhiev (https://github.com/nikolapavurdzhiev)",
+  "license": "MIT",
+  "homepage": "https://github.com/nikolapavurdzhiev/calcom-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikolapavurdzhiev/calcom-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nikolapavurdzhiev/calcom-mcp/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.22.4",
+    "typescript": "^5.7.2",
+    "vitest": "^4.1.9"
+  }
+}
