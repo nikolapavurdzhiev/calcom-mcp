@@ -1,5 +1,5 @@
 {
-  "name": "calcom-mcp",
+  "name": "@reckit/calcom-mcp",
   "version": "1.0.0",
   "description": "Local stdio MCP server giving an AI agent full access to the Cal.com / Cal.eu v2 API. Defaults to the EU host (api.cal.eu); US and self-hosted users set CALCOM_BASE_URL.",
   "type": "module",
@@ -37,6 +37,9 @@
   ],
   "author": "nikolapavurdzhiev (https://github.com/nikolapavurdzhiev)",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/nikolapavurdzhiev/calcom-mcp#readme",
   "repository": {
     "type": "git",

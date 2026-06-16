@@ -1,6 +1,6 @@
 # calcom-mcp
 
-[![npm version](https://img.shields.io/npm/v/calcom-mcp.svg)](https://www.npmjs.com/package/calcom-mcp)
+[![npm version](https://img.shields.io/npm/v/@reckit/calcom-mcp.svg)](https://www.npmjs.com/package/@reckit/calcom-mcp)
 [![license: MIT](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 [![Node >= 18](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](https://nodejs.org)
 
@@ -65,16 +65,16 @@ You don't install anything manually. Your MCP client launches it on demand. Skip
 
 ```bash
 # EU account (default):
-CALCOM_API_KEY=cal_live_xxx npx -y calcom-mcp
+CALCOM_API_KEY=cal_live_xxx npx -y @reckit/calcom-mcp
 
 # US account:
-CALCOM_API_KEY=cal_live_xxx CALCOM_BASE_URL=https://api.cal.com npx -y calcom-mcp
+CALCOM_API_KEY=cal_live_xxx CALCOM_BASE_URL=https://api.cal.com npx -y @reckit/calcom-mcp
 ```
 
 It will start and wait for a client over stdio (there's no interactive prompt — press `Ctrl+C` to stop). On Windows PowerShell:
 
 ```powershell
-$env:CALCOM_API_KEY="cal_live_xxx"; npx -y calcom-mcp
+$env:CALCOM_API_KEY="cal_live_xxx"; npx -y @reckit/calcom-mcp
 ```
 
 ### Option B — clone and build (for development or pinning a version)
@@ -96,7 +96,7 @@ Don't want to touch config files yourself? **Copy the prompt below and paste it 
 >
 > 1. Make sure Node.js 18+ is installed (`node --version`). If it isn't, tell me how to install it and stop.
 > 2. Add a new MCP server named `calcom` to my MCP client's config. Use `npx` so nothing needs to be cloned:
->    - command: `npx`, args: `["-y", "calcom-mcp"]`
+>    - command: `npx`, args: `["-y", "@reckit/calcom-mcp"]`
 >    - environment variable `CALCOM_API_KEY` = `cal_live_REPLACE_WITH_MY_KEY`
 >    - **I am in the EU (cal.eu), so do NOT set CALCOM_BASE_URL — the default is correct.**
 >    - *(If I am in the US/global on cal.com instead, also set `CALCOM_BASE_URL` = `https://api.cal.com`.)*
@@ -146,7 +146,7 @@ Edit `claude_desktop_config.json` (Claude Desktop → Settings → Developer →
   "mcpServers": {
     "calcom": {
       "command": "npx",
-      "args": ["-y", "calcom-mcp"],
+      "args": ["-y", "@reckit/calcom-mcp"],
       "env": {
         "CALCOM_API_KEY": "cal_live_xxxxxxxxxxxxxxxxxxxx"
       }
@@ -162,7 +162,7 @@ Edit `claude_desktop_config.json` (Claude Desktop → Settings → Developer →
   "mcpServers": {
     "calcom": {
       "command": "npx",
-      "args": ["-y", "calcom-mcp"],
+      "args": ["-y", "@reckit/calcom-mcp"],
       "env": {
         "CALCOM_API_KEY": "cal_live_xxxxxxxxxxxxxxxxxxxx",
         "CALCOM_BASE_URL": "https://api.cal.com"
@@ -172,7 +172,7 @@ Edit `claude_desktop_config.json` (Claude Desktop → Settings → Developer →
 }
 ```
 
-> **Windows note:** if Claude can't find `npx`, use `"command": "cmd"` with `"args": ["/c", "npx", "-y", "calcom-mcp"]`.
+> **Windows note:** if Claude can't find `npx`, use `"command": "cmd"` with `"args": ["/c", "npx", "-y", "@reckit/calcom-mcp"]`.
 
 **Using a local clone (Option B)** — point at the built entry file with an absolute path and escaped backslashes on Windows:
 
@@ -193,13 +193,13 @@ After editing the config, **fully restart Claude Desktop**. The `calcom` tools t
 ### Claude Code
 
 ```bash
-claude mcp add calcom --env CALCOM_API_KEY=cal_live_xxx -- npx -y calcom-mcp
+claude mcp add calcom --env CALCOM_API_KEY=cal_live_xxx -- npx -y @reckit/calcom-mcp
 # US: add  --env CALCOM_BASE_URL=https://api.cal.com
 ```
 
 ### Any other MCP client (Cursor, generic)
 
-Use the same idea: `command: "npx"`, `args: ["-y", "calcom-mcp"]`, and an `env` block with `CALCOM_API_KEY` (plus `CALCOM_BASE_URL` for US/self-hosted). For a local clone, run `node /absolute/path/to/calcom-mcp/dist/index.js`.
+Use the same idea: `command: "npx"`, `args: ["-y", "@reckit/calcom-mcp"]`, and an `env` block with `CALCOM_API_KEY` (plus `CALCOM_BASE_URL` for US/self-hosted). For a local clone, run `node /absolute/path/to/calcom-mcp/dist/index.js`.
 
 ### Smoke test (uses your real key, read-only)
 
